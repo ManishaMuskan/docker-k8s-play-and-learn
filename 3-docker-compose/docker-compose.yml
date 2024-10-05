@@ -1,0 +1,9 @@
+services:
+  redis_server:
+    image: 'redis'
+    restart: on-failure
+  node_app:
+    build: . # look in the current directory for Dockerfile and build this image
+    ports: 
+      - '2000:8080' # - is how we specify an array in .yml file, so here we can specify more than one ports for a single container
+    restart: always

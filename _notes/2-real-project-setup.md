@@ -108,4 +108,13 @@ You will be redirected directly to the `/usr/app` directory inside the container
 
 ---
 
+Note -
+**Instruction Order in Dockerfile Matters**
+
+The order of instructions in a Dockerfile is crucial. When you make a change to any step, Docker re-executes the build process starting from that step. This forces Docker to skip cached versions of previous steps and redo the installation process. Therefore, to optimize the build process and avoid unnecessary reinstallation, it's important to carefully structure the instructions.
+
+**No Hot-Reload in Docker**
+
+Docker doesn't support hot-reloading. Any changes to the source code require rebuilding the image to reflect the updates. To apply changes, you'll need to rebuild and restart the container each time you modify the code.
+
 This guide provides a basic understanding of how to dockerize a Node.js project with port mapping, image tagging, and setting up a working directory inside the container.

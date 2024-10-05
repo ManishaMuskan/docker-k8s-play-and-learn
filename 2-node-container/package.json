@@ -1,0 +1,15 @@
+{
+  "name": "2-node-container",
+  "version": "1.0.0",
+  "description": "example code to practise docker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Manisha",
+  "license": "ISC",
+  "dependencies": {
+    "express": "*"
+  }
+}

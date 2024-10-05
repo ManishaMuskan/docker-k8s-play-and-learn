@@ -4,7 +4,7 @@ RUN apk add --update redis
 
 CMD [ "redis-server" ]
 
-# /-----------------another container example------------------------------
+# /-----------------another container example---------------------
 
 # FROM redis:alpine
 

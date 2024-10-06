@@ -1,0 +1,33 @@
+services:
+  # this will run the development server inside it
+  react_prod_app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - '3000:3000'
+    volumes:
+      # set up a volume on node_modules setup a placeholder there and to make sure we don't accidently override the directory
+      - /home/node/app/node_modules
+      - .:/home/node/app
+  # this will run the tests inside it
+  app_tests:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - /home/node/app/node_modules
+      - .:/home/node/app
+    command: [ "npm", "run", "test" ]
+
+# ---------- if it's not running in WSL env, instead running in linux/mac env by-default-------
+# services:
+#   react_prod_app:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile.dev
+#     ports:
+#       - '3000:3000'
+#     volumes:
+#       - /app/node_modules
+#       - .:/app

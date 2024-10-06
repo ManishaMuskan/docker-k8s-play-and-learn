@@ -104,3 +104,5 @@ Here’s how to manually create an image that runs the Redis server at startup:
 With these steps, you can create a custom Docker image that automatically runs the Redis server upon startup.
 
 ---
+TIP -
+Always try to run command with -it flag attached with it for the sake of convinience

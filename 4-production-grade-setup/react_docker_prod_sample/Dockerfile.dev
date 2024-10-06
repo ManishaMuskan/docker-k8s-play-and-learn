@@ -1,0 +1,23 @@
+FROM node:16-alpine
+
+USER node
+
+RUN mkdir -p /home/node/app
+WORKDIR /home/node/app
+
+COPY --chown=node:node ./package.json ./
+RUN npm install
+COPY --chown=node:node ./ ./
+
+CMD ["npm", "start"]
+
+# ---------- if it's not running in WSL env, instead running in linux/mac env by-default-------
+# FROM node:16-alpine
+
+# WORKDIR /app
+
+# COPY package.json .
+# RUN npm install
+# COPY . .
+
+# CMD [ "npm", "start" ]
